@@ -1,3 +1,10 @@
+provider "aws" {
+    region  = "us-east-1"
+    access_key = var.access_key
+    secret_key = var.my-secret-key
+
+}
+
 module "creacion_vpc" {
   source = "./modulos/network"
 
@@ -62,7 +69,5 @@ module "creacion_security_group" {
       security_groups = ["sg-0b2fd5f21d83a20af"]
       description     = "Allow all outbound traffic"
     }
-
   ]
-
 }
