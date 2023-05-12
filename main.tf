@@ -1,7 +1,7 @@
 module "creacion_vpc" {
   source = "./modulos/network"
 
-  name_vpc       = "davivienda VPC"
+  name_vpc       = var.name_vpc
   cidr_block_vpc = "10.0.0.0/16"
   subnets = [
     {
