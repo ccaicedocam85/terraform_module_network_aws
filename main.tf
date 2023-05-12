@@ -15,5 +15,4 @@ module "creacion_vpc" {
       availability_zone = "us-east-1b"
     }
   ]
-
 }
