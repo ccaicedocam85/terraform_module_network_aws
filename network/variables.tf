@@ -4,6 +4,6 @@ variable "cidr_block_ip4" {
 }
 
 variable "name" {
-    dedescription = "vpc name"
+    description = "vpc name"
     default = ""
 }
