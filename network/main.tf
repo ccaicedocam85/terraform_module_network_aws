@@ -7,6 +7,10 @@ resource "aws_vpc" "this" {
 
 resource "aws_subnet" "this" {
   vpc_id = aws_vpc.this.id
-  cidr_block = var.cidr_block_sub_net
-  availability_zone = var.availability_zone
+  count = length(var.subnets)
+  cidr_block = var.subnets[count.index].cidr_block
+  availability_zone = var.subnets[count.index].availability_zone
+  tags = {
+    Name = var.subnets[count.index].name
+  }
 }

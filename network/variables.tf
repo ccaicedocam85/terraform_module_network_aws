@@ -9,12 +9,10 @@ variable "name_vpc" {
     default = ""
 }
 
-variable "cidr_block_sub_net" {
-    description = "The IPv4 CIDR block for the subnet"
-    type = string
-}
-
-variable "availability_zone" {
-  description = "AZ for the subnet."
-  type = string
+variable "subnets" {
+  type = list(object({
+    cidr_block          = string
+    name                = string
+    availability_zone   = string
+  }))
 }
