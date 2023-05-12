@@ -59,7 +59,7 @@ module "creacion_security_group" {
       to_port         = 65535
       protocol        = "tcp"
       cidr_blocks     = []
-      security_groups = ["sg-0ac78198b5f9804e9"]
+      security_groups = ["sg-0b2fd5f21d83a20af"]
       description     = "Allow all outbound traffic"
     }
 
