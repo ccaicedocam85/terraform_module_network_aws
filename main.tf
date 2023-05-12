@@ -20,7 +20,7 @@ module "creacion_vpc" {
 module "creacion_security_group" {
   source              = "./modulos/security_groups"
   name_security_group = "Sg 1"
-  vpc_id              = "vpc-0d5604c5561d99918"
+  vpc_id              = module.creacion_vpc.vpc_ids
   ingress_rules = [
     {
       from_port   = 22
