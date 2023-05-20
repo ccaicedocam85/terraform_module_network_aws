@@ -1,3 +1,16 @@
+/*
+terraform {
+
+  cloud {
+    organization = "ccaicedocam"
+
+    workspaces {
+      name = "terraform_module_network_aws"
+    }
+  }
+}
+*/
+
 provider "aws" {
     region  = "us-east-1"
 }
