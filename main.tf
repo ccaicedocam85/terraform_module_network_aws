@@ -1,7 +1,11 @@
+provider "aws" {
+    region  = "us-east-1"
+}
+
 module "creacion_vpc" {
   source = "./modulos/network"
 
-  name_vpc       = var.name_vpc
+  name_vpc       = "davivienda tf"
   cidr_block_vpc = "10.0.0.0/16"
   subnets = [
     {
@@ -46,16 +50,6 @@ module "creacion_security_group" {
       cidr_blocks     = ["0.0.0.0/0"]
       security_groups = []
       description     = "Allow all outbound traffic"
-    },
-    {
-      from_port       = 0
-      to_port         = 65535
-      protocol        = "tcp"
-      cidr_blocks     = []
-      security_groups = ["sg-0b2fd5f21d83a20af"]
-      description     = "Allow all outbound traffic"
     }
-
   ]
-
 }
