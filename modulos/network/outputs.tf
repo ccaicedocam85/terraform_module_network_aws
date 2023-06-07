@@ -1,8 +1,12 @@
-output "vpc_ids" {
+output "vpc_id" {
   #value = aws_vpc.this.id
   value = aws_vpc.this.id
 }
 
-output "subnet_ids" {
-  value = aws_subnet.this.*.id
+output "aws_subnet_app" {
+  value = aws_subnet_app.this.*.id
+}
+
+output "aws_subnet_db" {
+  value = aws_subnet_db.this.*.id
 }

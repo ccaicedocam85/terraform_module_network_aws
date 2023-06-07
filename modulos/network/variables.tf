@@ -9,7 +9,15 @@ variable "name_vpc" {
   default     = ""
 }
 
-variable "subnets" {
+variable "subnets_app" {
+  type = list(object({
+    cidr_block        = string
+    name              = string
+    availability_zone = string
+  }))
+}
+
+variable "subnets_db" {
   type = list(object({
     cidr_block        = string
     name              = string

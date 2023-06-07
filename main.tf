@@ -7,7 +7,7 @@ module "creacion_vpc" {
 
   name_vpc       = "davivienda tf"
   cidr_block_vpc = "10.0.0.0/16"
-  subnets = [
+  subnets_app = [
     {
       cidr_block        = "10.0.1.0/24"
       name              = "Private Subnet 1"
@@ -19,12 +19,24 @@ module "creacion_vpc" {
       availability_zone = "us-east-1b"
     }
   ]
+  subnets_db = [
+    {
+      cidr_block        = "10.0.3.0/24"
+      name              = "Private Subnet 3"
+      availability_zone = "us-east-1a"
+    },
+    {
+      cidr_block        = "10.0.4.0/24"
+      name              = "Private Subnet 4"
+      availability_zone = "us-east-1b"
+    }
+  ]
 }
 
 module "creacion_security_group" {
   source              = "./modulos/security_groups"
   name_security_group = "Sg 1"
-  vpc_id              = module.creacion_vpc.vpc_ids
+  vpc_id              = module.creacion_vpc.vpc_id
   ingress_rules = [
     {
       from_port   = 22
