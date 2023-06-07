@@ -1,3 +1,16 @@
+/*
+terraform {
+
+  cloud {
+    organization = "ccaicedocam"
+
+    workspaces {
+      name = "terraform_module_network_aws"
+    }
+  }
+}
+*/
+
 provider "aws" {
     region  = "us-east-1"
 }
@@ -5,7 +18,7 @@ provider "aws" {
 module "creacion_vpc" {
   source = "./modulos/network"
 
-  name_vpc       = "davivienda tf"
+  name_vpc       = var.name_vpc
   cidr_block_vpc = "10.0.0.0/16"
   subnets_app = [
     {
@@ -51,13 +64,6 @@ module "creacion_security_group" {
       protocol    = "tcp"
       cidr_blocks = ["0.0.0.0/0"]
       description = "HTTP access"
-    },
-    {
-      from_port   = 443
-      to_port     = 443
-      protocol    = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
-      description = "HTTPS access"
     }
   ]
 
